@@ -1,16 +1,14 @@
 <script lang="ts">
+  import { windowFocus } from "../helpers/stores";
   export let text = "";
   export let error = "";
-  function logCursorPos(e){
-    console.log(e.target.selectionStart, e.target.selectionEnd)
-  }
 </script>
 
 <div class="windows-container">
   <input
+    on:blur={() => windowFocus.set(false)}
+    on:focus={() => windowFocus.set(true)}
     bind:value={text}
-    on:keydown={logCursorPos}
-    on:click={logCursorPos}
     class="windows"
   />
   <div class="errors">
@@ -32,6 +30,7 @@
     border-radius: 5px;
     border: none;
     border: 1px solid transparent;
+    transition: 0.3s ease;
     &:focus {
       border: 1px solid $primary-color;
       outline: none;

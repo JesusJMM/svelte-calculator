@@ -48,12 +48,6 @@ function scapeInput(input:string){
 export function boardKeyDownHandler(e: CustomEvent, text: string): string{
   const key = e.detail
   switch (key) {
-    // case '.':
-    //   if(text.indexOf(key) !== -1){
-    //     // the text has an character "."
-    //     return text
-    //   }
-    //   return text.concat(key)
     case '=':
       console.log(text)
       return String(evaluate(scapeInput(text)) || "")
