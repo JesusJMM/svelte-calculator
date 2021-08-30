@@ -5,6 +5,10 @@
   import Windows from './windows.svelte';
 
   let text = ""
+  let cursorPos = {
+    start:0,
+    end:0,
+  }
 
   // board layout
   const rawLayout = [

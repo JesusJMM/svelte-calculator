@@ -38,7 +38,6 @@ export const specialCharactersTable = {"*": "×", "/": "÷", "Backspace": "←",
 const scapeCharacterTable = {"×": "*", "÷": "/"}
 
 function scapeInput(input:string){
-  // special scape
   // regular scape 
   const regEx = new RegExp(`[${Object.keys(scapeCharacterTable).join("")}]`, "g")
   const out = input.replace(regEx, (key) => {
@@ -56,7 +55,8 @@ export function boardKeyDownHandler(e: CustomEvent, text: string): string{
     //   }
     //   return text.concat(key)
     case '=':
-      return String(evaluate(scapeInput(text)))
+      console.log(text)
+      return String(evaluate(scapeInput(text)) || "")
     case '←':
       return text.slice(0,text.length - 1)
     case 'C':
